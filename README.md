@@ -871,9 +871,7 @@ This makes sure that the block of code following `if __name__ == "__main__":` is
 
 <br>
 
-# Frequently Asked Questions
-
-## 1. How do you read and write files in Node.js?
+## 16. How do you read and write files in Node.js?
 
 To read and write files in Node.js, you can use the built-in `fs` (File System) module. Here's an example:
 
@@ -889,6 +887,210 @@ fs.readFile('path/to/file.txt', 'utf8', (err, data) => {
   console.log(data);
 });
 ```
+
+**Writing to a file:**
+```javascript
+const fs = require('fs');
+
+const content = 'This is some content to write into the file.';
+
+fs.writeFile('path/to/file.txt', content, err => {
+  if (err) {
+    console.error(err);
+    return;
+  }
+  console.log('File has been written');
+});
+```
+
+## 17. How do you use the EventEmitter in Node.js?
+
+The `EventEmitter` class is part of the `events` module in Node.js. It allows you to handle custom events. Here's an example:
+
+```javascript
+const EventEmitter = require('events');
+
+class MyEmitter extends EventEmitter {}
+
+const myEmitter = new MyEmitter();
+
+myEmitter.on('event', () => {
+  console.log('An event occurred!');
+});
+
+myEmitter.emit('event');
+```
+
+## 18. What is the QueryString module?
+
+The `querystring` module provides utilities for parsing and formatting URL query strings. Here's an example:
+
+**Parsing a query string:**
+```javascript
+const querystring = require('querystring');
+
+const parsed = querystring.parse('foo=bar&abc=xyz&abc=123');
+console.log(parsed);
+```
+
+**Stringifying an object:**
+```javascript
+const querystring = require('querystring');
+
+const str = querystring.stringify({ foo: 'bar', baz: ['qux', 'quux'], corge: '' });
+console.log(str);
+```
+
+## 19. How do you manage path operations in Node.js?
+
+Node.js provides the `path` module to work with file and directory paths. Here's an example:
+
+```javascript
+const path = require('path');
+
+// Join paths
+const joinedPath = path.join('/foo', 'bar', 'baz/asdf', 'quux', '..');
+console.log(joinedPath);
+
+// Resolve a sequence of paths to an absolute path
+const absolutePath = path.resolve('foo/bar', '/tmp/file/', '..', 'a/../subfile');
+console.log(absolutePath);
+```
+
+## 20. What are callbacks in Node.js?
+
+Callbacks are functions passed as arguments to other functions and are invoked after an operation is completed. Here's an example:
+
+```javascript
+function fetchData(callback) {
+  setTimeout(() => {
+    callback('Data fetched');
+  }, 1000);
+}
+
+fetchData((message) => {
+  console.log(message);
+});
+```
+
+## 21. What is callback hell and how can it be avoided?
+
+Callback hell refers to the situation where callbacks are nested within other callbacks several levels deep, making the code hard to read and maintain. It can be avoided using Promises or async/await. 
+
+**Using Promises:**
+```javascript
+function fetchData() {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      resolve('Data fetched');
+    }, 1000);
+  });
+}
+
+fetchData().then(message => {
+  console.log(message);
+});
+```
+
+**Using async/await:**
+```javascript
+async function fetchData() {
+  return 'Data fetched';
+}
+
+(async () => {
+  const message = await fetchData();
+  console.log(message);
+})();
+```
+
+## 22. Explain promises in Node.js.
+
+Promises are objects representing the eventual completion or failure of an asynchronous operation. Here's an example:
+
+```javascript
+const myPromise = new Promise((resolve, reject) => {
+  setTimeout(() => {
+    resolve('Success!');
+  }, 1000);
+});
+
+myPromise.then(value => {
+  console.log(value);
+}).catch(err => {
+  console.error(err);
+});
+```
+
+## 23. How do async/await functions work in Node.js?
+
+`async` and `await` are syntactic sugar over Promises, making asynchronous code easier to write and read. Here's an example:
+
+```javascript
+function fetchData() {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      resolve('Data fetched');
+    }, 1000);
+  });
+}
+
+async function getData() {
+  const data = await fetchData();
+  console.log(data);
+}
+
+getData();
+```
+
+## 24. What is the difference between synchronous and asynchronous methods in the fs module?
+
+Synchronous methods block the execution until the operation is completed, while asynchronous methods do not block the execution and use callbacks or promises to handle the result.
+
+**Synchronous:**
+```javascript
+const fs = require('fs');
+
+try {
+  const data = fs.readFileSync('path/to/file.txt', 'utf8');
+  console.log(data);
+} catch (err) {
+  console.error(err);
+}
+```
+
+**Asynchronous:**
+```javascript
+const fs = require('fs');
+
+fs.readFile('path/to/file.txt', 'utf8', (err, data) => {
+  if (err) {
+    console.error(err);
+    return;
+  }
+  console.log(data);
+});
+```
+
+## 25. How does Node.js handle HTTP requests and responses?
+
+Node.js has a built-in `http` module to handle HTTP requests and responses. Here's an example of creating a simple HTTP server:
+
+```javascript
+const http = require('http');
+
+const server = http.createServer((req, res) => {
+  res.statusCode = 200;
+  res.setHeader('Content-Type', 'text/plain');
+  res.end('Hello, World!\n');
+});
+
+const PORT = 3000;
+server.listen(PORT, () => {
+  console.log(`Server running at http://localhost:${PORT}/`);
+});
+```
+
 
 <br>
 <a href="https://devinterview.io/questions/web-and-mobile-development/">
