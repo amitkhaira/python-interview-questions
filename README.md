@@ -1316,24 +1316,22 @@ import re
 pattern = re.compile(r'\d+')  # Compiles a regex pattern to match digits
 ```
 
-82. Give examples of commonly used <em>regex patterns</em> in <em>Python</em>.
+82. Give examples of commonly used regex patterns in Python.
    ```python
    - Matching email addresses: `^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$`
    - Matching URLs: `^(http|https):\/\/[^\s]+$`
    - Matching dates in YYYY-MM-DD format: `^\d{4}-\d{2}-\d{2}$`
    - Matching phone numbers: `^\+?\d{1,3}[-\.\s]?\(?\d{3}\)?[-\.\s]?\d{3}[-\.\s]?\d{4}$`
-
-83. How do you <em>replace text</em> in a string using <em>regular expressions</em>?
-   ```python
-   You can use the `re.sub()` function in Python:
+  ```
+83. How do you replace text in a string using regular expressions?
    ```python
    import re
    text = "Hello, my name is Alice."
    new_text = re.sub(r'Alice', 'Bob', text)
    print(new_text)  # Output: "Hello, my name is Bob."
+   ```
 
-84. When should you use <em>regular expressions</em> and when should you avoid them?
-   ```python
+84. When should you use regular expressions and when should you avoid them?
    Use regular expressions when:
    - You need to search for complex patterns in text.
    - You want to extract specific information from structured text data.
@@ -1344,76 +1342,62 @@ pattern = re.compile(r'\d+')  # Compiles a regex pattern to match digits
    - The pattern is overly complex and difficult to understand or maintain.
    - Performance is a critical concern in high-volume applications.
 
-85. How do you manage <em>Python environments</em> using <code>venv</code>?
-   ```python
-   Python environments can be managed using the `venv` module:
+85. How do you manage Python environments using venv?
    ```python
    python3 -m venv myenv
    source myenv/bin/activate  # On Unix/macOS
    myenv\Scripts\activate  # On Windows
+   ```
 
-86. What is a <em>virtual environment</em> and when should you use one?
-   ```python
+86. What is a virtual environment and when should you use one?
    A virtual environment is a self-contained directory that contains a Python installation for a particular project, along with its own dependencies. You should use a virtual environment to isolate project dependencies and avoid conflicts between different Python projects.
 
-87. How do you install <em>Python packages</em>?
-   ```python
-   Python packages can be installed using pip:
+87. How do you install Python packages?
    ```python
    pip install package_name
+   ```
 
-88. How do you <em>manage dependencies</em> in Python projects?
-   ```python
-   Dependencies can be managed using a requirements file (`requirements.txt`) listing all packages and versions:
+88. How do you manage dependencies in Python projects?
+   Dependencies can be managed using a requirements file (requirements.txt) listing all packages and versions:
    ```python
    pip freeze > requirements.txt
    pip install -r requirements.txt
+   ```
 
-89. What is <em>Docker</em> and how do you use it with <em>Python</em>?
-   ```python
+89. What is Docker and how do you use it with Python?
    Docker is a platform for developing, shipping, and running applications in containers. With Docker, you can create containerized environments for Python applications, ensuring consistency across different development and deployment environments.
 
-90. What is <em>data science</em> and how is <em>Python</em> used in it?
-   ```python
+90. What is data science and how is Python used in it?
    Data science is the field of study that combines domain expertise, programming skills, and knowledge of mathematics and statistics to extract meaningful insights from data. Python is widely used in data science for its extensive libraries (like NumPy, pandas, and scikit-learn) that support data analysis, visualization, and machine learning.
 
-91. How do you <em>clean</em> and <em>preprocess</em> data in <em>Python</em>?
-   ```python
+91. How do you clean and preprocess data in Python?
    Data cleaning and preprocessing in Python involve tasks such as handling missing values, removing duplicates, normalizing data, and transforming categorical variables into numerical representations. Libraries like pandas and scikit-learn provide tools and methods for these tasks.
 
-92. What is a <em>DataFrame</em> in <em>pandas</em>?
-   ```python
+92. What is a DataFrame in pandas?
    A DataFrame in pandas is a two-dimensional, size-mutable, labeled data structure with columns of potentially different data types. It is similar to a spreadsheet or SQL table, and it is used for data manipulation and analysis.
 
-93. How do you <em>handle missing data</em> with <em>pandas</em>?
-   ```python
+93. How do you handle missing data with pandas?
    Pandas provides methods like `isnull()`, `dropna()`, and `fillna()` to handle missing data. You can identify missing values, drop rows or columns with missing data, or fill missing values with specified values (e.g., mean, median).
 
-94. How can you <em>perform data aggregation</em> in <em>pandas</em>?
-   ```python
+94. How can you perform data aggregation in pandas?
    Data aggregation in pandas involves operations like sum, mean, count, etc., applied to grouped data. You can use `groupby()` along with aggregation functions to compute summary statistics for groups of data.
 
-95. What is <em><code>scikit-learn</code></em> and how do you use it?
-   ```python
+95. What is scikit-learn and how do you use it?
    Scikit-learn is a machine learning library in Python that provides tools for data mining and data analysis. It includes various algorithms and utilities for tasks such as classification, regression, clustering, dimensionality reduction, and model selection.
 
-96. How do you handle <em>feature selection</em> in <em>Python</em>?
-   ```python
+96. How do you handle feature selection in Python?
    Feature selection in Python involves techniques like statistical tests, feature importance ranking, and model-based selection. Libraries like scikit-learn provide functions and classes (e.g., `SelectKBest`, `RFECV`) for performing feature selection based on various criteria.
 
-97. What is <em>cross-validation</em> and how do you perform it in <em>Python</em>?
-   ```python
+97. What is cross-validation and how do you perform it in Python?
    Cross-validation is a technique used to evaluate the performance of machine learning models by splitting the data into multiple subsets (folds). Scikit-learn provides functions and classes (e.g., `KFold`, `cross_val_score`) for performing cross-validation in Python, helping to assess a model's generalization ability.
 
-98. How do you save a trained machine learning model with <em>Python</em>?
-   ```python
-   Trained machine learning models can be saved using libraries like joblib or pickle:
+98. How do you save a trained machine learning model with Python?
    ```python
    import joblib
    joblib.dump(model, 'model.pkl')
+   ```
 
-99. What are the steps involved in <em>training a machine learning model</em> with <em>Python</em>?
-   ```python
+99. What are the steps involved in training a machine learning model with Python?
    Steps involved in training a machine learning model include:
    - Data preprocessing (cleaning, normalization, feature engineering)
    - Splitting data into training and testing sets
@@ -1422,7 +1406,7 @@ pattern = re.compile(r'\d+')  # Compiles a regex pattern to match digits
    - Evaluating the model's performance on the test data
    - Fine-tuning the model (hyperparameter tuning)
    - Saving the trained model for future use
-```
+
 
 #### Explore all 100 answers here 👉 [Devinterview.io - Python](https://devinterview.io/questions/web-and-mobile-development/python-interview-questions)
 
