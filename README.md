@@ -865,231 +865,568 @@ if __name__ == "__main__":
 This makes sure that the block of code following `if __name__ == "__main__":` is only executed when the module is run directly and not when imported as a module in another program.
 <br>
 
+## 16. What is the use of `if __name__ == '__main__':`?
 
+The `if __name__ == '__main__':` construct in Python allows you to write code that will only execute when the script is run directly, not when it is imported as a module in another script. It is typically used to define a script's behavior when it is executed as the main program.
+
+```python
+if __name__ == '__main__':
+    # This code block will execute when the script is run directly
+    print("This script is being run directly")
+else:
+    # This code block will execute when the script is imported as a module
+    print("This script is being imported as a module")
+```
+
+## 17. What are Python namespaces?
+
+In Python, a namespace is a mapping from names to objects. It allows you to uniquely identify objects within a program. Namespaces ensure that object names are unique and can be used without naming conflicts.
+
+## 18. How does a Python module search path work?
+
+Python searches for modules in the following order:
+
+1. The current directory.
+2. Paths defined in the `PYTHONPATH` environment variable.
+3. Installation-dependent default paths.
+
+## 19. What is a Python package?
+
+A Python package is a directory containing Python modules and an `__init__.py` file. It allows you to organize modules into a hierarchical structure. Packages are used to organize and distribute Python projects.
+
+## 20. What is list comprehension? Give an example.
+
+List comprehension is a concise way to create lists in Python by evaluating an expression for each item in an iterable. It provides a more readable and compact syntax compared to traditional loops.
+
+```python
+# Example of list comprehension
+numbers = [1, 2, 3, 4, 5]
+squared_numbers = [num ** 2 for num in numbers]
+print(squared_numbers)  # Output: [1, 4, 9, 16, 25]
+```
+
+## 21. Explain dictionary comprehension.
+
+Dictionary comprehension is similar to list comprehension but creates dictionaries instead of lists. It allows you to create dictionaries from iterables using a concise syntax.
+
+```python
+# Example of dictionary comprehension
+numbers = [1, 2, 3, 4, 5]
+squared_dict = {num: num ** 2 for num in numbers}
+print(squared_dict)  # Output: {1: 1, 2: 4, 3: 9, 4: 16, 5: 25}
+```
+
+## 22. What are generators in Python, and how do you use them?
+
+Generators in Python are functions that produce a sequence of results using `yield` instead of `return`. They generate values lazily and are memory efficient compared to lists.
+
+```python
+# Example of a generator function
+def countdown(n):
+    while n > 0:
+        yield n
+        n -= 1
+
+# Using the generator
+for num in countdown(5):
+    print(num)  # Output: 5, 4, 3, 2, 1
+```
+
+## 23. How do you implement concurrency in Python?
+
+Concurrency in Python can be achieved using threads (`threading`) or asynchronous programming (`asyncio`). Threads allow concurrent execution of tasks, while asyncio enables concurrent execution of asynchronous functions.
+
+## 24. What are coroutines and how do they differ from threads?
+
+Coroutines are specialized functions used for cooperative multitasking. They allow tasks to voluntarily yield control to other tasks, unlike threads which can be preemptively interrupted. Coroutines are managed by the programmer and are more lightweight than threads.
+
+## 25. What is the Global Interpreter Lock (GIL)?
+
+The Global Interpreter Lock (GIL) is a mutex that protects access to Python objects, preventing multiple native threads from executing Python bytecodes simultaneously. It limits the execution of Python threads to one at a time, affecting multi-threaded performance in CPU-bound tasks.
+
+## 26. How would you optimize the performance of a Python application?
+
+To optimize the performance of a Python application:
+
+- Use efficient algorithms and data structures.
+- Profile your code to identify bottlenecks.
+- Optimize critical sections of code.
+- Leverage concurrency and parallelism.
+- Utilize caching mechanisms.
+- Use compiled extensions or libraries for performance-critical tasks.
+
+## 27. What is a context manager and the `with` statement in Python?
+
+A context manager is an object that defines the `__enter__` and `__exit__` methods. It allows you to manage resources (like files or locks) in a way that ensures they are properly initialized and cleaned up. The `with` statement simplifies the management of these resources.
+
+## 28. What strategies can be employed to optimize memory usage in Python applications?
+
+To optimize memory usage in Python applications:
+
+- Use generators and iterators instead of lists where possible.
+- Avoid unnecessary copies of objects.
+- Use data structures that are optimized for memory usage (e.g., `array.array`).
+- Monitor and manage memory usage using tools like `memory_profiler`.
+- Implement caching mechanisms to reuse objects.
+
+## 29. What is monkey patching in Python?
+
+Monkey patching refers to dynamically modifying or extending a module or class at runtime. It allows you to change or augment the behavior of code without altering its original source code. Monkey patching is powerful but should be used judiciously to avoid unexpected behavior.
+
+## 30. What are classes in Python?
+
+Classes in Python are blueprints for creating objects. They define attributes (data) and methods (functions) that operate on those attributes. Classes support object-oriented programming concepts such as inheritance, encapsulation, and polymorphism.
+
+## 31. How does Python support object-oriented programming?
+
+Python supports object-oriented programming (OOP) through:
+
+- Classes and objects: Define and instantiate classes.
+- Inheritance: Create subclasses that inherit attributes and methods from a parent class.
+- Encapsulation: Hide implementation details within classes.
+- Polymorphism: Define methods in subclasses that override methods in parent classes.
+
+## 32. What is inheritance and give an example in Python?
+
+Inheritance in Python allows a class (subclass) to inherit the attributes and methods of another class (superclass). It promotes code reusability and supports the "is-a" relationship.
+
+```python
+# Example of inheritance
+class Animal:
+    def __init__(self, name):
+        self.name = name
+
+    def sound(self):
+        pass
+
+class Dog(Animal):
+    def sound(self):
+        return "Bark"
+
+dog = Dog("Fido")
+print(dog.sound())  # Output: Bark
+```
+
+## 33. How do you achieve encapsulation in Python?
+
+Encapsulation in Python is achieved by using private and protected access specifiers (`__` and `_` prefixes) to restrict access to certain class members. It hides the implementation details and prevents direct modification of data.
+
+## 34. What are class methods, static methods, and instance methods?
+
+- **Instance methods**: Operate on an instance of a class and have access to instance variables (`self` parameter).
+- **Class methods**: Operate on the class itself and have access to class variables (`cls` parameter).
+- **Static methods**: Do not operate on instance or class data and are defined using the `@staticmethod` decorator.
+
+## 35. What is polymorphism in Python?
+
+Polymorphism in Python allows objects of different classes to be treated as objects of a common superclass. It enables flexibility and extensibility by defining methods in subclasses that override methods in the superclass.
+
+## 36. Explain the use of the `super()` function.
+
+The `super()` function in Python is used to call methods of a superclass from a subclass. It allows you to access superclass methods and constructors, facilitating method overriding and inheritance.
+
+## 37. What is method resolution order (MRO) in Python?
+
+Method Resolution Order (MRO) defines the order in which Python looks for methods and attributes in a hierarchy of classes. It ensures that the correct method or attribute is accessed in cases of multiple inheritance.
+
+## 38. What are magic methods in Python?
+
+Magic methods, also known as dunder methods, are special methods in Python that begin and end with double underscores (`__`). They provide functionality to classes that can be used with built-in Python operations (e.g., `__init__`, `__repr__`, `__add__`).
+
+## 39. How do you prevent a class from being inherited?
+
+To prevent a class from being inherited in Python, define it with the `final` keyword or use the `__final__()` method.
+
+## 40. How do you debug a Python program?
+
+To debug a Python program:
+
+- Use print statements for basic debugging.
+- Use the built-in `pdb` debugger (`import pdb; pdb.set_trace()`).
+- Use integrated development environments (IDEs) with debugging support (e.g., PyCharm, VS Code).
+- Use logging for detailed debugging information.
+
+## 41. What are some popular debugging tools for Python?
+
+Popular debugging tools for Python include:
+- `pdb`: Python's built-in debugger.
+- `pdb++`: An enhanced version of `pdb` with colorization and tab completion.
+- `PyCharm`: A powerful IDE with built-in debugging capabilities.
+- `VS Code`: A lightweight IDE with debugging support through extensions.
+- `ipdb`: A more interactive debugger with tab completion and syntax highlighting.
+
+## 42. What is unit testing in Python?
+
+Unit testing in Python involves testing individual units or components of a program in isolation. It ensures that each unit of code performs as expected by validating input, output, and behavior using automated tests.
+
+## 43. How do you write a basic test case in Python using `unittest`?
+
+To write a basic test case using `unittest`:
+
+```python
+import unittest
+
+def add(a, b):
+    return a + b
+
+class TestAddition(unittest.TestCase):
+    def test_add(self):
+        result = add(3, 5)
+        self.assertEqual(result, 8)
+
+if __name__ == '__main__':
+    unittest.main()
+```
+
+## 44. What is `pytest` and how is it used?
+
+`pytest` is a testing framework for Python that allows you to write simple and scalable test cases. It supports test discovery, fixtures, parameterized testing, and more concise syntax compared to `unittest`.
+
+## 45. How do you test a Python function with side effects?
+
+To test a Python function with side effects, use assertions to verify the expected changes in state, output, or behavior caused by the function.
+
+## 46. What is a breakpoint and how do you use it?
+
+A breakpoint is a point in your code where program execution pauses for debugging purposes. You can set breakpoints in IDEs or debuggers like `pdb` to inspect variables, step through code, and analyze program state during execution.
+
+## 47. How do you log messages in Python?
+
+In Python, you can log messages using the `logging` module, which provides a flexible framework for recording log messages with different severity levels (e.g., DEBUG, INFO, WARNING, ERROR, CRITICAL).
+
+## 48. How do you use assertions in Python?
+
+Assertions in Python are statements that assert or guarantee a condition to be true. They are used for debugging and testing purposes to ensure that assumptions about program state hold true during execution.
+
+## 49. What is a traceback, and how do you analyze it?
+
+A traceback in Python is a report of the function calls made in the program up to the point where an exception occurred. It helps you trace the sequence of events leading to the error and analyze the cause of the exception.
+
+## 50. How do you open and close a file in Python?
+
+To open and close a file in Python:
+
+```python
+# Opening a file
+file = open('example.txt', 'r')
+
+# Reading from the file
+content = file.read()
+print(content)
+
+# Closing the file
+file.close()
+```
+
+## 51. What are the different modes for opening a file?
+
+Python supports different modes for opening a file:
+- `'r'`: Read (default).
+- `'w'`: Write (truncate existing file or create new).
+- `'a'`: Append (create new file if not exists).
+- `'b'`: Binary mode.
+- `'+'`: Read and write.
+
+## 52. How do you read and write data to a file in Python?
+
+To read and write data to a file in Python:
+
+```python
+# Writing to a file
+with open('output.txt', 'w') as file:
+    file.write('Hello, World!')
+
+# Reading from a file
+with open('output.txt', 'r') as file:
+    content = file.read()
+    print(content)  # Output: Hello, World!
+```
+
+## 53. What is a CSV file and how do you read it in Python?
+
+A CSV (Comma Separated Values) file is a plain text file that stores tabular data in a structured format, where each line represents a row, and columns are separated by commas. You can read CSV files in Python using the `csv` module.
+
+## 54. What are JSON files and how does Python process them?
+
+JSON (JavaScript Object Notation) files store data in a human-readable format using key-value pairs. Python can process JSON files using the `json` module to parse JSON strings into Python objects (serialization) and convert Python objects back into JSON strings (deserialization).
+
+## 55. How do you handle binary files in Python?
+
+To handle binary files in Python, use the `'b'` mode when opening files. Binary files contain data that is not in human-readable format and may include images, executables, or serialized objects.
+
+## 56. What is the `pandas` library, and how is it used?
+
+`pandas` is a Python library for data manipulation and analysis. It provides data structures like `DataFrame` and `Series` for handling structured data, supports data cleaning, transformation, and analysis tasks.
+
+## 57. How do you process data in chunks with `pandas`?
+
+To process data in chunks with `pandas`, use the `chunksize` parameter in `read_csv()` or `read_excel()` to read large datasets in manageable chunks. Iterate over these chunks to perform operations on data incrementally.
+
+## 58. What are the advantages of using NumPy arrays over nested Python lists?
+
+NumPy arrays offer advantages over nested Python lists:
+- Faster computation due to efficient element-wise operations.
+- Memory efficiency with homogeneous data types.
+- Built-in mathematical functions for array manipulation.
+- Broadcasting for applying operations on arrays of different shapes.
+
+## 59. How do you use the `os` and `sys` modules for interacting with the operating system?
+
+The `os` and `sys` modules in Python allow you to interact with the operating system:
+- `os`: Provides functions for interacting with the file system, environment variables, and processes.
+- `sys`: Provides access to system-specific parameters and functions (e.g., command-line arguments).
+
+## 60. What are the key features of the Flask framework?
+
+Flask is a lightweight and flexible Python web framework with key features:
+- Built-in development server and debugger.
+- URL routing and RESTful request dispatching.
+- Jinja2 templating and secure cookie support.
+- Lightweight and extensible with modular extensions (Flask extensions).
+
+## 61. How do you build a REST API in Flask?
+
+To build a REST API in Flask:
+- Define routes using `@app.route()` decorators for different HTTP methods (`GET`, `POST`, `PUT`, `DELETE`).
+- Serialize and deserialize data using `jsonify()` and `request.json`.
+- Implement authentication, error handling, and validation using Flask extensions (e.g., Flask-RESTful).
+
+## 62. What is Django and what is it used for?
+
+Django is a high-level Python web framework that promotes rapid development and clean, pragmatic design. It provides an ORM for database interaction, a powerful admin interface, and built-in security features. Django is used for building web applications and APIs.
+
+## 63. How do you create a new Django project?
+
+To create a new Django project:
+1. Install Django (`pip install django`).
+2. Use `django-admin` to create a new project:
+   
+```python
+django-admin startproject myproject
+```
+
+## 64. What is an ORM, and how does Django use it?
+
+An ORM (Object-Relational Mapping) is a programming technique for converting data between incompatible type systems (object-oriented programming languages and relational databases). Django uses an ORM to map Python objects to database tables, simplifying database interactions and query construction.
+
+## 65. What is the purpose of the `requests` module?
+
+The `requests` module in Python allows you to send HTTP requests easily. It provides simple APIs for performing HTTP methods (`GET`, `POST`, `PUT`, `DELETE`) and handling responses, making it ideal for web scraping, API interaction, and testing.
+
+## 66. How do you visualize data in Python?
+
+To visualize data in Python, use libraries like `matplotlib`, `seaborn`, and `plotly`. These libraries provide functions for creating various types of plots (e.g., line plots, bar plots, scatter plots) to visualize data distributions, trends, and relationships.
+
+## 67. What are some libraries you can use for machine learning in Python?
+
+Python offers several machine learning libraries:
+- `scikit-learn`: General-purpose machine learning library with algorithms for classification, regression, clustering, etc.
+- `TensorFlow` and `Keras`: Deep learning frameworks for building neural networks.
+- `PyTorch`: Deep learning framework with dynamic computation graphs.
+- `XGBoost` and `LightGBM`: Gradient boosting libraries for tree-based models.
+
+## 68. How do you schedule tasks in Python?
+
+To schedule tasks in Python, use libraries like `schedule`, `APScheduler`, or system utilities like `cron` (on Unix-like systems). These tools allow you to automate repetitive tasks by specifying the schedule and actions to be performed.
+
+## 69. What is asyncio and how do you use it?
+
+`asyncio` is a Python module for asynchronous programming. It allows you to write concurrent code using `async` and `await` syntax, facilitating non-blocking I/O operations. `asyncio` is used for scalable network servers, web frameworks, and other asynchronous applications.
+
+## 70. How do you implement socket programming in Python?
+
+To implement socket programming in Python:
+- Use the `socket` module to create socket objects (`socket.socket()`).
+- Bind sockets to addresses and ports using `bind()`.
+- Establish connections with `connect()` and handle incoming connections with `listen()` and `accept()`.
+- Send and receive data using `send()` and `recv()` methods.
+
+## 71. What are the steps to make a simple HTTP request in Python?
+
+To make a simple HTTP request in Python:
+- Use the `requests` module to create a `Request` object.
+- Send the request using HTTP methods (`GET`, `POST`, `PUT`, `DELETE`).
+- Handle the response object to retrieve data or handle errors.
+
+## 72. How do you connect to a SQL database in Python?
+
+To connect to a SQL database in Python:
+- Install a DB-API compatible database driver (`mysql-connector-python`, `psycopg2`, `cx_Oracle`).
+- Use the `connect()` function with connection parameters (e.g., host, port, username, password) to establish a connection object.
+- Create a cursor object using `cursor()` to execute SQL queries and retrieve results.
+
+## 73. How do you execute a query in a database using Python?
+
+To execute a query in a database using Python:
+- Use the cursor object (`cursor`) to execute SQL statements (`execute()`, `executemany()`).
+- Fetch results using methods like `fetchone()`, `fetchall()`, or iterate over the cursor to process query results.
+
+## 74. What is a NoSQL database and how would you interact with it in Python?
+
+A NoSQL (Not Only SQL) database is a non-relational database that stores data in flexible, schema-less formats (e.g., key-value pairs, document stores, graph databases). To interact with NoSQL databases in Python, use client libraries (e.g., `pymongo` for MongoDB, `cassandra-driver` for Apache Cassandra) that provide APIs for CRUD operations and data modeling.
+
+## 75. How would you automate a repetitive task in Python?
+
+To automate a repetitive task in Python:
+- Identify the task and its requirements (e.g., file processing, data analysis, web scraping).
+- Write a Python script using appropriate libraries and modules to perform the task.
+- Schedule script execution using tools like `cron`, task schedulers (`schedule`, `APScheduler`), or deployment platforms (e.g., AWS Lambda, Azure Functions).
+
+## 76. How can Python scripts be used for system administration?
+
+Python scripts can be used for system administration tasks such as:
+- Managing files and directories (`os`, `shutil`).
+- Interacting with the system environment (`os`, `sys`, `subprocess`).
+- Automating tasks with cron jobs or task scheduling libraries.
+- Monitoring system performance (e.g., `psutil` for process management).
+- Network configuration and monitoring (`socket`, `paramiko` for SSH).
+
+## 77. What techniques can you use for parsing text files?
+
+To parse text files in Python, use techniques like:
+- String manipulation (e.g., `split()`, `strip()`).
+- Regular expressions (`re` module) for complex pattern matching.
+- Tokenization and parsing libraries (`nltk`, `spaCy`) for natural language processing tasks.
+- CSV and JSON parsing modules (`csv`, `json`) for structured data formats.
+
+## 78. How do you manipulate CSV files using Python?
+
+To manipulate CSV files in Python:
+- Use the `csv` module for reading, writing, and manipulating CSV data.
+- Read CSV files using `reader()` or `DictReader()` to handle rows as lists or dictionaries.
+- Write CSV files using `writer()` or `DictWriter()` to output data from lists or dictionaries.
+
+## 79. How do you automate web browsing using Python?
+
+To automate web browsing in Python:
+- Use the `requests` module for HTTP requests and web scraping.
+- Utilize headless browsers with tools like `Selenium` for simulating user interactions (e.g., form submissions, button clicks).
+- Parse HTML content with libraries (`BeautifulSoup`, `lxml`) to extract data from web pages.
+
+## 80. What are regular expressions and how are they used?
+
+Regular expressions (regex) are sequences of characters that define search patterns for matching strings. They are used for pattern matching, text manipulation, and data validation tasks in Python.
+
+## 81. How do you compile a regular expression in Python?
+
+To compile a regular expression in Python, use the `re.compile()` function:
+```python
+import re
+
+pattern = re.compile(r'\d+')  # Compiles a regex pattern to match digits
+```
+
+82. Give examples of commonly used <em>regex patterns</em> in <em>Python</em>.
+   ```python
+   - Matching email addresses: `^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$`
+   - Matching URLs: `^(http|https):\/\/[^\s]+$`
+   - Matching dates in YYYY-MM-DD format: `^\d{4}-\d{2}-\d{2}$`
+   - Matching phone numbers: `^\+?\d{1,3}[-\.\s]?\(?\d{3}\)?[-\.\s]?\d{3}[-\.\s]?\d{4}$`
+
+83. How do you <em>replace text</em> in a string using <em>regular expressions</em>?
+   ```python
+   You can use the `re.sub()` function in Python:
+   ```python
+   import re
+   text = "Hello, my name is Alice."
+   new_text = re.sub(r'Alice', 'Bob', text)
+   print(new_text)  # Output: "Hello, my name is Bob."
+
+84. When should you use <em>regular expressions</em> and when should you avoid them?
+   ```python
+   Use regular expressions when:
+   - You need to search for complex patterns in text.
+   - You want to extract specific information from structured text data.
+   - Performance considerations are acceptable for the task at hand.
+
+   Avoid regular expressions when:
+   - The task can be easily accomplished using simpler string methods.
+   - The pattern is overly complex and difficult to understand or maintain.
+   - Performance is a critical concern in high-volume applications.
+
+85. How do you manage <em>Python environments</em> using <code>venv</code>?
+   ```python
+   Python environments can be managed using the `venv` module:
+   ```python
+   python3 -m venv myenv
+   source myenv/bin/activate  # On Unix/macOS
+   myenv\Scripts\activate  # On Windows
+
+86. What is a <em>virtual environment</em> and when should you use one?
+   ```python
+   A virtual environment is a self-contained directory that contains a Python installation for a particular project, along with its own dependencies. You should use a virtual environment to isolate project dependencies and avoid conflicts between different Python projects.
+
+87. How do you install <em>Python packages</em>?
+   ```python
+   Python packages can be installed using pip:
+   ```python
+   pip install package_name
+
+88. How do you <em>manage dependencies</em> in Python projects?
+   ```python
+   Dependencies can be managed using a requirements file (`requirements.txt`) listing all packages and versions:
+   ```python
+   pip freeze > requirements.txt
+   pip install -r requirements.txt
+
+89. What is <em>Docker</em> and how do you use it with <em>Python</em>?
+   ```python
+   Docker is a platform for developing, shipping, and running applications in containers. With Docker, you can create containerized environments for Python applications, ensuring consistency across different development and deployment environments.
+
+90. What is <em>data science</em> and how is <em>Python</em> used in it?
+   ```python
+   Data science is the field of study that combines domain expertise, programming skills, and knowledge of mathematics and statistics to extract meaningful insights from data. Python is widely used in data science for its extensive libraries (like NumPy, pandas, and scikit-learn) that support data analysis, visualization, and machine learning.
+
+91. How do you <em>clean</em> and <em>preprocess</em> data in <em>Python</em>?
+   ```python
+   Data cleaning and preprocessing in Python involve tasks such as handling missing values, removing duplicates, normalizing data, and transforming categorical variables into numerical representations. Libraries like pandas and scikit-learn provide tools and methods for these tasks.
+
+92. What is a <em>DataFrame</em> in <em>pandas</em>?
+   ```python
+   A DataFrame in pandas is a two-dimensional, size-mutable, labeled data structure with columns of potentially different data types. It is similar to a spreadsheet or SQL table, and it is used for data manipulation and analysis.
+
+93. How do you <em>handle missing data</em> with <em>pandas</em>?
+   ```python
+   Pandas provides methods like `isnull()`, `dropna()`, and `fillna()` to handle missing data. You can identify missing values, drop rows or columns with missing data, or fill missing values with specified values (e.g., mean, median).
+
+94. How can you <em>perform data aggregation</em> in <em>pandas</em>?
+   ```python
+   Data aggregation in pandas involves operations like sum, mean, count, etc., applied to grouped data. You can use `groupby()` along with aggregation functions to compute summary statistics for groups of data.
+
+95. What is <em><code>scikit-learn</code></em> and how do you use it?
+   ```python
+   Scikit-learn is a machine learning library in Python that provides tools for data mining and data analysis. It includes various algorithms and utilities for tasks such as classification, regression, clustering, dimensionality reduction, and model selection.
+
+96. How do you handle <em>feature selection</em> in <em>Python</em>?
+   ```python
+   Feature selection in Python involves techniques like statistical tests, feature importance ranking, and model-based selection. Libraries like scikit-learn provide functions and classes (e.g., `SelectKBest`, `RFECV`) for performing feature selection based on various criteria.
+
+97. What is <em>cross-validation</em> and how do you perform it in <em>Python</em>?
+   ```python
+   Cross-validation is a technique used to evaluate the performance of machine learning models by splitting the data into multiple subsets (folds). Scikit-learn provides functions and classes (e.g., `KFold`, `cross_val_score`) for performing cross-validation in Python, helping to assess a model's generalization ability.
+
+98. How do you save a trained machine learning model with <em>Python</em>?
+   ```python
+   Trained machine learning models can be saved using libraries like joblib or pickle:
+   ```python
+   import joblib
+   joblib.dump(model, 'model.pkl')
+
+99. What are the steps involved in <em>training a machine learning model</em> with <em>Python</em>?
+   ```python
+   Steps involved in training a machine learning model include:
+   - Data preprocessing (cleaning, normalization, feature engineering)
+   - Splitting data into training and testing sets
+   - Choosing a suitable algorithm and model
+   - Training the model on the training data
+   - Evaluating the model's performance on the test data
+   - Fine-tuning the model (hyperparameter tuning)
+   - Saving the trained model for future use
+```
 
 #### Explore all 100 answers here 👉 [Devinterview.io - Python](https://devinterview.io/questions/web-and-mobile-development/python-interview-questions)
 
 <br>
-
-## 16. How do you read and write files in Node.js?
-
-To read and write files in Node.js, you can use the built-in `fs` (File System) module. Here's an example:
-
-**Reading a file:**
-```javascript
-const fs = require('fs');
-
-fs.readFile('path/to/file.txt', 'utf8', (err, data) => {
-  if (err) {
-    console.error(err);
-    return;
-  }
-  console.log(data);
-});
-```
-
-**Writing to a file:**
-```javascript
-const fs = require('fs');
-
-const content = 'This is some content to write into the file.';
-
-fs.writeFile('path/to/file.txt', content, err => {
-  if (err) {
-    console.error(err);
-    return;
-  }
-  console.log('File has been written');
-});
-```
-
-## 17. How do you use the EventEmitter in Node.js?
-
-The `EventEmitter` class is part of the `events` module in Node.js. It allows you to handle custom events. Here's an example:
-
-```javascript
-const EventEmitter = require('events');
-
-class MyEmitter extends EventEmitter {}
-
-const myEmitter = new MyEmitter();
-
-myEmitter.on('event', () => {
-  console.log('An event occurred!');
-});
-
-myEmitter.emit('event');
-```
-
-## 18. What is the QueryString module?
-
-The `querystring` module provides utilities for parsing and formatting URL query strings. Here's an example:
-
-**Parsing a query string:**
-```javascript
-const querystring = require('querystring');
-
-const parsed = querystring.parse('foo=bar&abc=xyz&abc=123');
-console.log(parsed);
-```
-
-**Stringifying an object:**
-```javascript
-const querystring = require('querystring');
-
-const str = querystring.stringify({ foo: 'bar', baz: ['qux', 'quux'], corge: '' });
-console.log(str);
-```
-
-## 19. How do you manage path operations in Node.js?
-
-Node.js provides the `path` module to work with file and directory paths. Here's an example:
-
-```javascript
-const path = require('path');
-
-// Join paths
-const joinedPath = path.join('/foo', 'bar', 'baz/asdf', 'quux', '..');
-console.log(joinedPath);
-
-// Resolve a sequence of paths to an absolute path
-const absolutePath = path.resolve('foo/bar', '/tmp/file/', '..', 'a/../subfile');
-console.log(absolutePath);
-```
-
-## 20. What are callbacks in Node.js?
-
-Callbacks are functions passed as arguments to other functions and are invoked after an operation is completed. Here's an example:
-
-```javascript
-function fetchData(callback) {
-  setTimeout(() => {
-    callback('Data fetched');
-  }, 1000);
-}
-
-fetchData((message) => {
-  console.log(message);
-});
-```
-
-## 21. What is callback hell and how can it be avoided?
-
-Callback hell refers to the situation where callbacks are nested within other callbacks several levels deep, making the code hard to read and maintain. It can be avoided using Promises or async/await. 
-
-**Using Promises:**
-```javascript
-function fetchData() {
-  return new Promise((resolve, reject) => {
-    setTimeout(() => {
-      resolve('Data fetched');
-    }, 1000);
-  });
-}
-
-fetchData().then(message => {
-  console.log(message);
-});
-```
-
-**Using async/await:**
-```javascript
-async function fetchData() {
-  return 'Data fetched';
-}
-
-(async () => {
-  const message = await fetchData();
-  console.log(message);
-})();
-```
-
-## 22. Explain promises in Node.js.
-
-Promises are objects representing the eventual completion or failure of an asynchronous operation. Here's an example:
-
-```javascript
-const myPromise = new Promise((resolve, reject) => {
-  setTimeout(() => {
-    resolve('Success!');
-  }, 1000);
-});
-
-myPromise.then(value => {
-  console.log(value);
-}).catch(err => {
-  console.error(err);
-});
-```
-
-## 23. How do async/await functions work in Node.js?
-
-`async` and `await` are syntactic sugar over Promises, making asynchronous code easier to write and read. Here's an example:
-
-```javascript
-function fetchData() {
-  return new Promise((resolve, reject) => {
-    setTimeout(() => {
-      resolve('Data fetched');
-    }, 1000);
-  });
-}
-
-async function getData() {
-  const data = await fetchData();
-  console.log(data);
-}
-
-getData();
-```
-
-## 24. What is the difference between synchronous and asynchronous methods in the fs module?
-
-Synchronous methods block the execution until the operation is completed, while asynchronous methods do not block the execution and use callbacks or promises to handle the result.
-
-**Synchronous:**
-```javascript
-const fs = require('fs');
-
-try {
-  const data = fs.readFileSync('path/to/file.txt', 'utf8');
-  console.log(data);
-} catch (err) {
-  console.error(err);
-}
-```
-
-**Asynchronous:**
-```javascript
-const fs = require('fs');
-
-fs.readFile('path/to/file.txt', 'utf8', (err, data) => {
-  if (err) {
-    console.error(err);
-    return;
-  }
-  console.log(data);
-});
-```
-
-## 25. How does Node.js handle HTTP requests and responses?
-
-Node.js has a built-in `http` module to handle HTTP requests and responses. Here's an example of creating a simple HTTP server:
-
-```javascript
-const http = require('http');
-
-const server = http.createServer((req, res) => {
-  res.statusCode = 200;
-  res.setHeader('Content-Type', 'text/plain');
-  res.end('Hello, World!\n');
-});
-
-const PORT = 3000;
-server.listen(PORT, () => {
-  console.log(`Server running at http://localhost:${PORT}/`);
-});
-```
 
 
 <br>
