@@ -871,6 +871,26 @@ This makes sure that the block of code following `if __name__ == "__main__":` is
 
 <br>
 
+# Frequently Asked Questions
+
+## 1. How do you read and write files in Node.js?
+
+To read and write files in Node.js, you can use the built-in `fs` (File System) module. Here's an example:
+
+**Reading a file:**
+```javascript
+const fs = require('fs');
+
+fs.readFile('path/to/file.txt', 'utf8', (err, data) => {
+  if (err) {
+    console.error(err);
+    return;
+  }
+  console.log(data);
+});
+```
+
+<br>
 <a href="https://devinterview.io/questions/web-and-mobile-development/">
 <img src="https://firebasestorage.googleapis.com/v0/b/dev-stack-app.appspot.com/o/github-blog-img%2Fweb-and-mobile-development-github-img.jpg?alt=media&token=1b5eeecc-c9fb-49f5-9e03-50cf2e309555" alt="web-and-mobile-development" width="100%">
 </a>
