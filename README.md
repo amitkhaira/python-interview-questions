@@ -1350,48 +1350,53 @@ pattern = re.compile(r'\d+')  # Compiles a regex pattern to match digits
    ```
 
 86. What is a virtual environment and when should you use one?
-   A virtual environment is a self-contained directory that contains a Python installation for a particular project, along with its own dependencies. You should use a virtual environment to isolate project dependencies and avoid conflicts between different Python projects.
 
-87. How do you install Python packages?
+  A virtual environment is a self-contained directory that contains a Python installation for a particular project, along with its own dependencies. You should use a virtual environment to isolate project dependencies and avoid conflicts between different Python projects.
+
+88. How do you install Python packages?
    ```python
    pip install package_name
    ```
 
 88. How do you manage dependencies in Python projects?
-   Dependencies can be managed using a requirements file (requirements.txt) listing all packages and versions:
+
+  Dependencies can be managed using a requirements file (requirements.txt) listing all packages and versions:
    ```python
    pip freeze > requirements.txt
    pip install -r requirements.txt
    ```
 
 89. What is Docker and how do you use it with Python?
-   Docker is a platform for developing, shipping, and running applications in containers. With Docker, you can create containerized environments for Python applications, ensuring consistency across different development and deployment environments.
 
-90. What is data science and how is Python used in it?
+  Docker is a platform for developing, shipping, and running applications in containers. With Docker, you can create containerized environments for Python applications, ensuring consistency across different development and deployment environments.
+
+91. What is data science and how is Python used in it?
+  
    Data science is the field of study that combines domain expertise, programming skills, and knowledge of mathematics and statistics to extract meaningful insights from data. Python is widely used in data science for its extensive libraries (like NumPy, pandas, and scikit-learn) that support data analysis, visualization, and machine learning.
 
-91. How do you clean and preprocess data in Python?
-   Data cleaning and preprocessing in Python involve tasks such as handling missing values, removing duplicates, normalizing data, and transforming categorical variables into numerical representations. Libraries like pandas and scikit-learn provide tools and methods for these tasks.
+92. How do you clean and preprocess data in Python?
 
-92. What is a DataFrame in pandas?
+  Data cleaning and preprocessing in Python involve tasks such as handling missing values, removing duplicates, normalizing data, and transforming categorical variables into numerical representations. Libraries like pandas and scikit-learn provide tools and methods for these tasks.
+
+94. What is a DataFrame in pandas?
    A DataFrame in pandas is a two-dimensional, size-mutable, labeled data structure with columns of potentially different data types. It is similar to a spreadsheet or SQL table, and it is used for data manipulation and analysis.
 
-93. How do you handle missing data with pandas?
+95. How do you handle missing data with pandas?
    Pandas provides methods like `isnull()`, `dropna()`, and `fillna()` to handle missing data. You can identify missing values, drop rows or columns with missing data, or fill missing values with specified values (e.g., mean, median).
 
-94. How can you perform data aggregation in pandas?
+96. How can you perform data aggregation in pandas?
    Data aggregation in pandas involves operations like sum, mean, count, etc., applied to grouped data. You can use `groupby()` along with aggregation functions to compute summary statistics for groups of data.
 
-95. What is scikit-learn and how do you use it?
+97. What is scikit-learn and how do you use it?
    Scikit-learn is a machine learning library in Python that provides tools for data mining and data analysis. It includes various algorithms and utilities for tasks such as classification, regression, clustering, dimensionality reduction, and model selection.
 
-96. How do you handle feature selection in Python?
+98. How do you handle feature selection in Python?
    Feature selection in Python involves techniques like statistical tests, feature importance ranking, and model-based selection. Libraries like scikit-learn provide functions and classes (e.g., `SelectKBest`, `RFECV`) for performing feature selection based on various criteria.
 
-97. What is cross-validation and how do you perform it in Python?
+99. What is cross-validation and how do you perform it in Python?
    Cross-validation is a technique used to evaluate the performance of machine learning models by splitting the data into multiple subsets (folds). Scikit-learn provides functions and classes (e.g., `KFold`, `cross_val_score`) for performing cross-validation in Python, helping to assess a model's generalization ability.
 
-98. How do you save a trained machine learning model with Python?
+100. How do you save a trained machine learning model with Python?
    ```python
    import joblib
    joblib.dump(model, 'model.pkl')
